@@ -7,6 +7,14 @@ function App(): JSX.Element {
             <header className="App-header">
                 UD CISC275 with React Hooks and TypeScript
             </header>
+            <h1>This is the header.</h1>
+            <img src="C:\Users\Victo\tasks\src\images\TurtlePic.jfif" alt="A picture of a turtle"/>
+            <ol>
+                <li>First</li>
+                <li>Second</li>
+                <li>Third</li>
+            </ol>
+            
             <p>
                 Edit <code>src/App.tsx</code> and save. This page will
                 automatically reload.

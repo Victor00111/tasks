@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import "./App.css";
+import img from "./images/TurtlePic.png";
 
 function App(): JSX.Element {
     return (
@@ -9,8 +10,9 @@ function App(): JSX.Element {
                 UD CISC275 with React Hooks and TypeScript
             </header>
             <h1>This is the header.</h1>
+            <h2>Also, here is a picture of a turtle.</h2>
             <div className="Image">
-                <img src="images/TurtlePic.png" alt="A picture of a turtle" />
+                <img src={img} alt="A picture of a turtle" />
             </div>
             <div className="Ordered-list">
                 <ol>

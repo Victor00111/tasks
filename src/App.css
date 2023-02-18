@@ -15,7 +15,7 @@
 
 .App-header {
     width: 100%;
-    background-color: #f21409;
+    background-color: #25c8e2;
     min-height: 40vh;
     display: flex;
     flex-direction: column;
@@ -25,10 +25,22 @@
     color: white;
 }
 
-.red-columns {
-    width: 50px;
+.Ordered-list {
+    align-items: center;
+}
+
+.Column1 {
+    width: 100px;
     height: 100px;
     background-color: #f21409;
+    margin: 1px;
+}
+
+.Column2 {
+    width: 100px;
+    height: 100px;
+    background-color: #f21409;
+    margin: 1px;
 }
 
 .App-link {

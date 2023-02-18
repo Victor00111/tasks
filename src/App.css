@@ -25,6 +25,12 @@
     color: white;
 }
 
+.red-columns {
+    width: 50px;
+    height: 100px;
+    background-color: #f21409;
+}
+
 .App-link {
     color: #61dafb;
 }

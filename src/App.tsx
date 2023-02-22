@@ -9,8 +9,7 @@ function App(): JSX.Element {
             <header className="App-header">
                 UD CISC275 with React Hooks and TypeScript
             </header>
-            <h1>This is the header.</h1>
-            <h2>Also, here is a picture of a turtle.</h2>
+            <h1>Here is a picutre of a turtle</h1>
             <div className="Image">
                 <img src={img} alt="A picture of a turtle" />
             </div>

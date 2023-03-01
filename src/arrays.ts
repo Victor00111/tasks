@@ -5,7 +5,14 @@
  * the number twice.
  */
 export function bookEndList(numbers: number[]): number[] {
-    return numbers;
+    const clone = [...numbers];
+    if (clone.length === 1) {
+        clone.push(numbers[0]);
+    } else if (clone.length > 1) {
+        const n: number = clone.length - 1;
+        clone.splice(1, n, clone[n]);
+    }
+    return clone;
 }
 
 /**
@@ -13,7 +20,8 @@ export function bookEndList(numbers: number[]): number[] {
  * number has been tripled (multiplied by 3).
  */
 export function tripleNumbers(numbers: number[]): number[] {
-    return numbers;
+    const tripled = numbers.map((num: number): number => num * 3);
+    return tripled;
 }
 
 /**
@@ -21,7 +29,10 @@ export function tripleNumbers(numbers: number[]): number[] {
  * the number cannot be parsed as an integer, convert it to 0 instead.
  */
 export function stringsToIntegers(numbers: string[]): number[] {
-    return [];
+    const clone = [...numbers];
+    return clone.map((num: string): number =>
+        !isNaN(parseInt(num)) ? parseInt(num) : 0
+    );
 }
 
 /**
@@ -32,7 +43,12 @@ export function stringsToIntegers(numbers: string[]): number[] {
  */
 // Remember, you can write functions as lambdas too! They work exactly the same.
 export const removeDollars = (amounts: string[]): number[] => {
-    return [];
+    const cloned_amounts = [...amounts].map((amount: string): string =>
+        amount.replace("$", "")
+    );
+    return cloned_amounts.map((amount: string): number =>
+        !isNaN(parseInt(amount)) ? parseInt(amount) : 0
+    );
 };
 
 /**
@@ -41,7 +57,12 @@ export const removeDollars = (amounts: string[]): number[] => {
  * in question marks ("?").
  */
 export const shoutIfExclaiming = (messages: string[]): string[] => {
-    return [];
+    const cloned_messages = [...messages].filter(
+        (message: string): boolean => message[message.length - 1] !== "?"
+    );
+    return cloned_messages.map((message: string): string =>
+        message[message.length - 1] === "!" ? message.toUpperCase() : message
+    );
 };
 
 /**
@@ -49,7 +70,10 @@ export const shoutIfExclaiming = (messages: string[]): string[] => {
  * 4 letters long.
  */
 export function countShortWords(words: string[]): number {
-    return 0;
+    const cloned_words = words.filter(
+        (word: string): boolean => word.length < 4
+    );
+    return cloned_words.length;
 }
 
 /**
@@ -58,7 +82,11 @@ export function countShortWords(words: string[]): number {
  * then return true.
  */
 export function allRGB(colors: string[]): boolean {
-    return false;
+    const cloned_colors = [...colors].every(
+        (color: string): boolean =>
+            color === "red" || color === "blue" || color === "green"
+    );
+    return cloned_colors;
 }
 
 /**
@@ -69,7 +97,15 @@ export function allRGB(colors: string[]): boolean {
  * And the array [] would become "0=0".
  */
 export function makeMath(addends: number[]): string {
-    return "";
+    if (addends.length === 0) return "0=0";
+    const addends_clone = [...addends];
+    const addition = addends_clone
+        .map((value: number): string => value.toString())
+        .join("+");
+    const sum = addends_clone
+        .reduce((total: number, value: number) => total + value, 0)
+        .toString();
+    return sum + "=" + addition;
 }
 
 /**
@@ -82,5 +118,19 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
-    return [];
+    const cloned_values = [...values];
+    const neg_index = cloned_values.findIndex(
+        (value: number): boolean => value < 0
+    );
+    const cloned_positives = [...cloned_values];
+    if (neg_index !== -1) {
+        cloned_positives.splice(neg_index, cloned_values.length, 0);
+    }
+    const sum = cloned_positives.reduce(
+        (total: number, value: number): number => (total += value),
+        0
+    );
+    if (neg_index !== -1) cloned_values.splice(neg_index + 1, 0, sum);
+    else cloned_values.push(sum);
+    return cloned_values;
 }

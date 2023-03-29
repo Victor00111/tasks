@@ -29,7 +29,6 @@ export function ChangeColor(): JSX.Element {
                     style={{ backgroundColor: color }}
                 />
             ))}
-
             <div>
                 Your chosen color is{" "}
                 <Form.Label
